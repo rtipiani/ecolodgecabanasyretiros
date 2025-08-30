@@ -12,10 +12,10 @@ import Layout from '../layouts/Layout.astro';
     <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/70"></div>
 
     <div class="relative z-10 text-white px-6 animate-fade-up">
-      <h1 class="text-5xl md:text-7xl font-extrabold mb-6 drop-shadow-lg">
+      <h1 class="text-4xl md:text-7xl font-extrabold mb-6 drop-shadow-lg [text-wrap:balance]">
         Vive la experiencia de un retiro en la naturaleza
       </h1>
-      <p class="text-xl md:text-2xl mb-8 font-light max-w-2xl mx-auto">
+      <p class="text-lg md:text-2xl mb-8 font-light max-w-2xl mx-auto">
         Cabañas ecológicas · Retiros de bienestar · Turismo responsable
       </p>
       <a href="#reservas" 
@@ -50,13 +50,19 @@ import Layout from '../layouts/Layout.astro';
   <section class="py-20 bg-gray-50">
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-4xl font-bold text-center mb-12 text-green-800">Explora el lugar</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <img src="/images/cabana.jpg" alt="Cabaña ecológica" 
-             class="rounded-2xl shadow-lg hover:scale-105 hover:shadow-2xl transition-transform duration-500" />
-        <img src="/images/yoga.jpg" alt="Retiro de yoga" 
-             class="rounded-2xl shadow-lg hover:scale-105 hover:shadow-2xl transition-transform duration-500" />
-        <img src="/images/bosque.jpg" alt="Naturaleza" 
-             class="rounded-2xl shadow-lg hover:scale-105 hover:shadow-2xl transition-transform duration-500" />
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div class="overflow-hidden rounded-2xl shadow-lg">
+          <img src="./1.jpg" alt="Cabaña ecológica" 
+               class="w-full h-72 object-cover hover:scale-105 hover:shadow-2xl transition-transform duration-500" />
+        </div>
+        <div class="overflow-hidden rounded-2xl shadow-lg">
+          <img src="./2.jpeg" alt="Retiro de yoga" 
+               class="w-full h-72 object-cover hover:scale-105 hover:shadow-2xl transition-transform duration-500" />
+        </div>
+        <div class="overflow-hidden rounded-2xl shadow-lg">
+          <img src="./3.jpeg" alt="Naturaleza" 
+               class="w-full h-72 object-cover hover:scale-105 hover:shadow-2xl transition-transform duration-500" />
+        </div>
       </div>
     </div>
   </section>
@@ -74,7 +80,7 @@ import Layout from '../layouts/Layout.astro';
   <section id="reservas" class="py-24 bg-gradient-to-r from-green-700 to-lime-700 text-white text-center">
     <h2 class="text-4xl md:text-5xl font-bold mb-8">Reserva tu próxima escapada al paraíso</h2>
     <a href="https://wa.me/51999999999" 
-       class="bg-white text-green-700 px-8 py-4 rounded-full font-semibold shadow-lg hover:bg-gray-100 transition">
+       class="block md:inline-block bg-white text-green-700 px-8 py-4 rounded-full font-semibold shadow-lg hover:bg-gray-100 transition">
       Ver disponibilidad en WhatsApp
     </a>
   </section>
