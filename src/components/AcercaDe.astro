@@ -1,0 +1,90 @@
+<section id="acerca" class="relative py-12 sm:py-16 md:py-20 bg-white overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-start">
+
+    <!-- Imagen con tarjetas flotantes -->
+    <div class="relative w-full rounded-3xl shadow-2xl overflow-hidden">
+      <img 
+        src="./about.png" 
+        alt="Acerca de Las Cabañas" 
+        class="w-full h-64 sm:h-80 md:h-[500px] lg:h-[550px] xl:h-[600px] object-cover object-center rounded-3xl" 
+      />
+      <div class="absolute inset-0 bg-green-900/20 rounded-3xl"></div>
+
+      <!-- Tarjetas flotantes: md+ -->
+      <div class="hidden md:flex absolute bottom-6 left-1/2 transform -translate-x-1/2 gap-6 px-4">
+        <div class="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-5 w-64 text-gray-800 text-base animate-slide-up">
+          <h4 class="font-semibold mb-1">Retiros de bienestar</h4>
+          <p>Experiencias de transformación personal y reconexión con la naturaleza.</p>
+        </div>
+        <div class="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-5 w-64 text-gray-800 text-base animate-slide-up delay-150">
+          <h4 class="font-semibold mb-1">Ceremonias ancestrales</h4>
+          <p>Eventos guiados para conectar con tu esencia y la comunidad.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contenido textual -->
+    <div class="relative z-10 mt-6 md:mt-0">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#19470c] mb-4 sm:mb-6 animate-fade-in">
+        Acerca de Las Cabañas
+      </h2>
+
+      <p class="text-gray-700 leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base animate-fade-in">
+        <strong>Las Cabañas</strong> es un lugar dedicado a la conexión profunda entre el ser humano, 
+        la vida y la naturaleza. Un espacio donde la calma, la belleza y la energía de los Andes 
+        se unen para inspirar transformación.
+      </p>
+
+      <p class="text-gray-700 leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base animate-fade-in delay-100">
+        Este proyecto fue soñado y diseñado por <strong>Víctor y Medalit</strong>, una familia con una 
+        fuerte conexión espiritual y un compromiso genuino con el desarrollo de las comunidades locales. 
+        Su propósito fue crear un refugio de paz donde familias, grupos y organizaciones puedan reunirse 
+        para <em>ceremonias, retiros, talleres y eventos conscientes</em>.
+      </p>
+
+      <h3 class="text-xl sm:text-2xl font-semibold text-green-800 mt-6 mb-3 sm:mb-4 animate-fade-in delay-200">
+        En Las Cabañas podrás vivir:
+      </h3>
+      <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm sm:text-base animate-fade-in delay-250">
+        <li>Retiros de bienestar y transformación</li>
+        <li>Ceremonias ancestrales y espirituales</li>
+        <li>Eventos y celebraciones conscientes</li>
+        <li>Encuentros para reconectar contigo mismo y con la naturaleza</li>
+      </ul>
+
+      <a 
+        href="#contacto" 
+        class="inline-block mt-6 sm:mt-8 px-5 sm:px-6 py-2 sm:py-3 bg-green-700 hover:bg-green-800 text-white rounded-lg shadow-lg transition animate-fade-in delay-300"
+      >
+        Conócenos más
+      </a>
+
+      <!-- Tarjetas móviles (debajo del contenido) -->
+      <div class="flex flex-col md:hidden gap-4 mt-6">
+        <div class="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-4 text-gray-800 text-sm animate-slide-up">
+          <h4 class="font-semibold mb-1">Retiros de bienestar</h4>
+          <p>Experiencias de transformación personal y reconexión con la naturaleza.</p>
+        </div>
+        <div class="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-4 text-gray-800 text-sm animate-slide-up delay-150">
+          <h4 class="font-semibold mb-1">Ceremonias ancestrales</h4>
+          <p>Eventos guiados para conectar con tu esencia y la comunidad.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Animaciones con Tailwind -->
+  <style>
+    @keyframes slideUp { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
+    .animate-slide-up { animation: slideUp 0.8s ease forwards; }
+
+    @keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
+    .animate-fade-in { animation: fadeIn 0.8s ease forwards; }
+
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-150 { animation-delay: 0.15s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-250 { animation-delay:0.25s; }
+    .delay-300 { animation-delay:0.3s; }
+  </style>
+</section>

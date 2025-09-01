@@ -1,0 +1,153 @@
+---
+export interface Slide {
+  id: number;
+  image: string;
+  title: string;
+  description: string;
+  primaryBtn?: { text: string; link: string };
+  secondaryBtn?: { text: string; link: string };
+}
+
+const slides: Slide[] = [
+  {
+    id: 1,
+    image: "./slide1.png",
+    title: "Un refugio de paz en la naturaleza",
+    description: "Vive experiencias transformadoras en un espacio diseñado para sanar y reconectar.",
+    primaryBtn: { text: "Descubrir", link: "#experiencias" },
+    secondaryBtn: { text: "Contáctanos", link: "#contacto" },
+  },
+  {
+    id: 2,
+    image: "./slide2.png",
+    title: "Ceremonias y encuentros conscientes",
+    description: "Conecta contigo mismo y con la comunidad en un entorno de armonía.",
+    primaryBtn: { text: "Ver más", link: "#retiros" },
+  },
+  {
+    id: 3,
+    image: "./slide3.png",
+    title: "Encuentros con la naturaleza",
+    description: "Descubre la magia de cada rincón diseñado para acoger, sanar y renovar.",
+    primaryBtn: { text: "Explorar", link: "#naturaleza" },
+  },
+];
+---
+
+<section class="relative h-[80vh] md:h-[100vh] w-full overflow-hidden">
+  <!-- Contenedor de slides -->
+  <div
+    id="slider-track"
+    class="flex transition-transform duration-700 ease-in-out h-full w-[calc(100%*{slides.length})]"
+  >
+    {slides.map((slide) => (
+      <div
+        class="h-[80vh] md:h-[100vh] w-full flex-shrink-0 bg-cover bg-center relative flex items-center justify-center text-center"
+        style={`background-image: url('${slide.image}');`}
+      >
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/50"></div>
+
+        <!-- Contenido -->
+        <div class="relative z-10 text-white max-w-xl md:max-w-3xl mx-auto px-4">
+          <h1 class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 leading-tight">
+            {slide.title}
+          </h1>
+          <p class="text-sm sm:text-base md:text-lg mb-4 md:mb-6">
+            {slide.description}
+          </p>
+          <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
+            {slide.primaryBtn && (
+              <a
+                href={slide.primaryBtn.link}
+                class="px-5 py-2 sm:px-6 sm:py-3 bg-green-700 hover:bg-green-800 text-white rounded-lg shadow-lg text-sm sm:text-base transition"
+              >
+                {slide.primaryBtn.text}
+              </a>
+            )}
+            {slide.secondaryBtn && (
+              <a
+                href={slide.secondaryBtn.link}
+                class="px-5 py-2 sm:px-6 sm:py-3 border border-white text-white rounded-lg hover:bg-white hover:text-green-800 text-sm sm:text-base transition"
+              >
+                {slide.secondaryBtn.text}
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Botones -->
+  <button
+    id="prevBtn"
+    class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-black/40 text-white w-8 h-8 sm:w-12 sm:h-12 rounded-full flex items-center justify-center hover:bg-black/70 transition z-20"
+    aria-label="Anterior"
+  >
+    <i class="fas fa-chevron-left text-xs sm:text-base"></i>
+  </button>
+
+  <button
+    id="nextBtn"
+    class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-black/40 text-white w-8 h-8 sm:w-12 sm:h-12 rounded-full flex items-center justify-center hover:bg-black/70 transition z-20"
+    aria-label="Siguiente"
+  >
+    <i class="fas fa-chevron-right text-xs sm:text-base"></i>
+  </button>
+
+  <!-- Paginación -->
+  <div
+    id="pagination"
+    class="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20"
+  >
+    {slides.map(() => (
+      <span class="dot w-2 h-2 sm:w-3 sm:h-3 bg-white/50 rounded-full cursor-pointer"></span>
+    ))}
+  </div>
+</section>
+
+<script>
+  const track = document.querySelector("#slider-track") as HTMLElement | null;
+  const prevBtn = document.querySelector("#prevBtn") as HTMLButtonElement | null;
+  const nextBtn = document.querySelector("#nextBtn") as HTMLButtonElement | null;
+  const dots = document.querySelectorAll(".dot");
+
+  if (track && prevBtn && nextBtn && dots.length) {
+    const totalSlides = track.children.length;
+    let index = 0;
+
+    function updateSlider() {
+      (track as HTMLElement).style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach((d, i) => {
+        d.classList.toggle("bg-white", i === index);
+        d.classList.toggle("bg-white/50", i !== index);
+      });
+    }
+
+    nextBtn.addEventListener("click", () => {
+      index = (index + 1) % totalSlides;
+      updateSlider();
+    });
+
+    prevBtn.addEventListener("click", () => {
+      index = (index - 1 + totalSlides) % totalSlides;
+      updateSlider();
+    });
+
+    dots.forEach((d, i) => {
+      d.addEventListener("click", () => {
+        index = i;
+        updateSlider();
+      });
+    });
+
+    // autoplay cada 4s
+    setInterval(() => {
+      index = (index + 1) % totalSlides;
+      updateSlider();
+    }, 4000);
+
+    updateSlider();
+  }
+</script>

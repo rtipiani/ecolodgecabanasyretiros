@@ -1,97 +1,16 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import HeroSlider from "../components/HeroSlider.astro";
+import AcercaDe from "../components/AcercaDe.astro";
+import Experiencias from "../components/Experiencias.astro";
+import Testimonios from "../components/Testimonios.astro";
+import Footer from "../components/Footer.astro";
 ---
 
-<Layout>
-  <!-- Hero -->
-  <section 
-    class="relative h-[90vh] flex items-center justify-center text-center bg-fixed bg-cover bg-center" 
-    style="background-image: url('./garden.jpg');"
-  >
-    <!-- Overlay con degradado -->
-    <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/70"></div>
-
-    <div class="relative z-10 text-white px-6 animate-fade-up">
-      <h1 class="text-4xl md:text-7xl font-extrabold mb-6 drop-shadow-lg [text-wrap:balance]">
-        Vive la experiencia de un retiro en la naturaleza
-      </h1>
-      <p class="text-lg md:text-2xl mb-8 font-light max-w-2xl mx-auto">
-        Cabañas ecológicas · Retiros de bienestar · Turismo responsable
-      </p>
-      <a href="#reservas" 
-         class="bg-gradient-to-r from-green-600 to-lime-600 hover:from-green-700 hover:to-lime-700 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-2xl transition-all duration-300">
-        Reserva tu estadía
-      </a>
-    </div>
-  </section>
-
-  <!-- Beneficios -->
-  <section class="py-20 bg-gradient-to-b from-white to-green-50">
-    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-12 text-center">
-      <div class="p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition">
-        <div class="text-green-700 text-6xl mb-4">🏡</div>
-        <h3 class="text-2xl font-semibold mb-3">Cabañas ecológicas</h3>
-        <p class="text-gray-600">Diseñadas con materiales sostenibles para disfrutar la naturaleza sin impacto ambiental.</p>
-      </div>
-      <div class="p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition">
-        <div class="text-green-700 text-6xl mb-4">🌱</div>
-        <h3 class="text-2xl font-semibold mb-3">Experiencias de retiro</h3>
-        <p class="text-gray-600">Sesiones de yoga, meditación y caminatas para reconectar contigo mismo.</p>
-      </div>
-      <div class="p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition">
-        <div class="text-green-700 text-6xl mb-4">🌎</div>
-        <h3 class="text-2xl font-semibold mb-3">Turismo responsable</h3>
-        <p class="text-gray-600">Promovemos la conservación del medio ambiente y el desarrollo local.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Galería -->
-  <section class="py-20 bg-gray-50">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center mb-12 text-green-800">Explora el lugar</h2>
-      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
-        <div class="overflow-hidden rounded-2xl shadow-lg">
-          <img src="./1.jpg" alt="Cabaña ecológica" 
-               class="w-full h-72 object-cover hover:scale-105 hover:shadow-2xl transition-transform duration-500" />
-        </div>
-        <div class="overflow-hidden rounded-2xl shadow-lg">
-          <img src="./2.jpeg" alt="Retiro de yoga" 
-               class="w-full h-72 object-cover hover:scale-105 hover:shadow-2xl transition-transform duration-500" />
-        </div>
-        <div class="overflow-hidden rounded-2xl shadow-lg">
-          <img src="./3.jpeg" alt="Naturaleza" 
-               class="w-full h-72 object-cover hover:scale-105 hover:shadow-2xl transition-transform duration-500" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonios -->
-  <section class="py-20 bg-white">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-4xl font-bold mb-12 text-green-800">Lo que dicen nuestros visitantes</h2>
-      <blockquote class="italic text-xl text-gray-700 mb-6 leading-relaxed">“Un lugar mágico, perfecto para desconectar del estrés de la ciudad.”</blockquote>
-      <p class="font-semibold text-green-700">– Laura, Lima</p>
-    </div>
-  </section>
-
-  <!-- CTA Final -->
-  <section id="reservas" class="py-24 bg-gradient-to-r from-green-700 to-lime-700 text-white text-center">
-    <h2 class="text-4xl md:text-5xl font-bold mb-8">Reserva tu próxima escapada al paraíso</h2>
-    <a href="https://wa.me/51999999999" 
-       class="block md:inline-block bg-white text-green-700 px-8 py-4 rounded-full font-semibold shadow-lg hover:bg-gray-100 transition">
-      Ver disponibilidad en WhatsApp
-    </a>
-  </section>
+<Layout title="Ecolodge Cabañas y Retiros">
+  <HeroSlider/>
+  <AcercaDe />
+  <Experiencias />
+  <Testimonios />
+  <Footer />
 </Layout>
-
-<style>
-  @keyframes fade-up {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .animate-fade-up {
-    animation: fade-up 1.2s ease-out;
-  }
-</style>
